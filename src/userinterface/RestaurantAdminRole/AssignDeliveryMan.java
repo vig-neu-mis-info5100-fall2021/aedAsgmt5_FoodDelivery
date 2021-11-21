@@ -138,7 +138,7 @@ private void populateNetworkTable() {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(188, 188, 188)
-                        .addComponent(AssignOrderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AssignOrderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(258, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -169,12 +169,12 @@ private void populateNetworkTable() {
 
             DeliveryMan deliveryMan  = (DeliveryMan)DeliveryManJTable.getValueAt(selectedRow, 0);
             deliveryMan.getOrderList().add(order);
-            order.setStatus("Assign to Deliveryman");
+            order.setStatus("Cooking Done. Assigned to Delivery man");
 
             for(Customer cust:system.getCustomerDirectory().getCustList()){
                 if(order.getCustomerName().equals(cust.getUserName())){
                     for(Order order : cust.getOrderList()){
-                        order.setStatus("Assign to Deliveryman");
+                        order.setStatus("Cooking Done. Assigned to Delivery man");
                     }
                 }
             }

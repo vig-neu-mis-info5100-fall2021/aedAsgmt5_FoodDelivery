@@ -43,7 +43,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jSplitPane = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         ManageDeliverybtn = new javax.swing.JButton();
         ManageResbtn = new javax.swing.JButton();
@@ -55,19 +54,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane.setDividerLocation(120);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
-
-        jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -106,7 +92,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ManageDeliverybtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ManageResbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                         .addComponent(jLabel2)))
                 .addContainerGap())
         );
@@ -129,9 +115,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ManageCxbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageCxbtnActionPerformed
+        ManageCustomerJPanel manageCustPanel=new ManageCustomerJPanel(userProcessContainer, ecosystem);
+
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add("ManageCustomerJPanel",manageCustPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageCxbtnActionPerformed
+
     private void ManageResbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageResbtnActionPerformed
         ManageRestaurantJPanel manageResPanel=new ManageRestaurantJPanel(userProcessContainer, ecosystem);
-        
+
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         userProcessContainer.add("ManageRestaurantJPanel",manageResPanel);
         layout.next(userProcessContainer);
@@ -139,19 +133,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageDeliverybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDeliverybtnActionPerformed
         ManageDeliveryManJPanel manageDelvPanel=new ManageDeliveryManJPanel(userProcessContainer, ecosystem);
-        
+
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         userProcessContainer.add("ManageDeliveryManJPanel",manageDelvPanel);
         layout.next(userProcessContainer);
     }//GEN-LAST:event_ManageDeliverybtnActionPerformed
-
-    private void ManageCxbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageCxbtnActionPerformed
-        ManageCustomerJPanel manageCustPanel=new ManageCustomerJPanel(userProcessContainer, ecosystem);
-        
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add("ManageCustomerJPanel",manageCustPanel);
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_ManageCxbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -159,7 +145,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton ManageDeliverybtn;
     private javax.swing.JButton ManageResbtn;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
     // End of variables declaration//GEN-END:variables

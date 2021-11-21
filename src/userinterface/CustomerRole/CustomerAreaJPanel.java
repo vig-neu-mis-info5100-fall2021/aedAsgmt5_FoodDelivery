@@ -47,7 +47,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
   
     public void populateTable(){
-         DefaultTableModel model = (DefaultTableModel) restaurentTablee.getModel();
+         DefaultTableModel model = (DefaultTableModel) hotelTablee.getModel();
         
         model.setRowCount(0);
          
@@ -66,7 +66,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     
       public void populateRequestTable(){
-         DefaultTableModel model = (DefaultTableModel) restaurentTablee.getModel();
+         DefaultTableModel model = (DefaultTableModel) hotelTablee.getModel();
         
          model.setRowCount(0);
         
@@ -99,35 +99,33 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        restaurentTablee = new javax.swing.JTable();
+        hotelTablee = new javax.swing.JTable();
         OrderFoof = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        boxQuantityCount = new javax.swing.JComboBox();
-        lblQuantity = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
 
-        restaurentTablee.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        restaurentTablee.setModel(new javax.swing.table.DefaultTableModel(
+        hotelTablee.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        hotelTablee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Restaurant name", "Address", "Quantity", "Number"
+                "Restaurant name", "Address", "Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -138,16 +136,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        restaurentTablee.setSelectionForeground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setViewportView(restaurentTablee);
-        if (restaurentTablee.getColumnModel().getColumnCount() > 0) {
-            restaurentTablee.getColumnModel().getColumn(0).setResizable(false);
-            restaurentTablee.getColumnModel().getColumn(1).setResizable(false);
-            restaurentTablee.getColumnModel().getColumn(2).setResizable(false);
-            restaurentTablee.getColumnModel().getColumn(3).setResizable(false);
+        hotelTablee.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(hotelTablee);
+        if (hotelTablee.getColumnModel().getColumnCount() > 0) {
+            hotelTablee.getColumnModel().getColumn(0).setResizable(false);
+            hotelTablee.getColumnModel().getColumn(1).setResizable(false);
+            hotelTablee.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        OrderFoof.setText("Order Food");
+        OrderFoof.setText("Proceed to Order Food");
         OrderFoof.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrderFoofActionPerformed(evt);
@@ -158,16 +155,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setText("Restaurants nearby");
 
         valueLabel.setText("<value>");
-
-        boxQuantityCount.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50" }));
-        boxQuantityCount.setToolTipText("");
-        boxQuantityCount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxQuantityCountActionPerformed(evt);
-            }
-        });
-
-        lblQuantity.setText("Quantity:");
 
         jLabel2.setText("Select a restaurant to order:");
 
@@ -180,26 +167,23 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(391, 391, 391)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(213, 213, 213)
+                                .addComponent(OrderFoof)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(OrderFoof)
-                        .addGap(29, 29, 29)
-                        .addComponent(lblQuantity)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,16 +195,13 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                         .addGap(9, 9, 9)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addGap(28, 28, 28)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OrderFoof)
-                    .addComponent(boxQuantityCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblQuantity))
-                .addGap(0, 0, 0))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(OrderFoof)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -229,12 +210,12 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     
     private void OrderFoofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderFoofActionPerformed
         
-         int selectedRow = restaurentTablee.getSelectedRow();
+         int selectedRow = hotelTablee.getSelectedRow();
         if(selectedRow<0){
             JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
-           Restaurant restaurant = (Restaurant)restaurentTablee.getValueAt(selectedRow, 0);
+           Restaurant restaurant = (Restaurant)hotelTablee.getValueAt(selectedRow, 0);
             
             
               CustOrderJPanel custOrder = new CustOrderJPanel(userProcessContainer,account,system,restaurant);
@@ -246,20 +227,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_OrderFoofActionPerformed
 
-    private void boxQuantityCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxQuantityCountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boxQuantityCountActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OrderFoof;
-    private javax.swing.JComboBox boxQuantityCount;
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JTable hotelTablee;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblQuantity;
-    private javax.swing.JTable restaurentTablee;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

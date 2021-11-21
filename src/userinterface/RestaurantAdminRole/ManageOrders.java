@@ -112,14 +112,14 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
-        deliverbtn.setText("Accept or Reject Order");
+        deliverbtn.setText("Proceed to Accept Items");
         deliverbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deliverbtnActionPerformed(evt);
             }
         });
 
-        Assignbtn.setText("Assign to Delivery Man ");
+        Assignbtn.setText("Finished Cooking? Assign Delivery man");
         Assignbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignbtnActionPerformed(evt);
@@ -143,26 +143,28 @@ public class ManageOrders extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(refreshbtn))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(42, 42, 42)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(backBtn))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(deliverbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(Assignbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(253, 253, 253)
+                                .addComponent(refreshbtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(416, 416, 416)
+                                        .addComponent(backBtn))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(deliverbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(Assignbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 109, Short.MAX_VALUE)))
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +204,8 @@ public class ManageOrders extends javax.swing.JPanel {
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
-            if(order.getStatus().equals("Ready to Deliver")|| order.getStatus().equals("Order Rejected")){
-                JOptionPane.showMessageDialog(null,"check order status","Warning",JOptionPane.WARNING_MESSAGE);
+            if(!order.getStatus().equals("New Order")){
+                JOptionPane.showMessageDialog(null,"It is already Accepted/Rejected!","Warning",JOptionPane.WARNING_MESSAGE);
             }else{
                 OrderDetails viewOrder=new OrderDetails(userProcessContainer,account,order,system);
                 userProcessContainer.add("View Order",viewOrder);
@@ -220,13 +222,15 @@ public class ManageOrders extends javax.swing.JPanel {
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
-            if(order.getStatus().equals("Assign to Deliveryman")){
-                JOptionPane.showMessageDialog(null,"Already Assigned Order","Warning",JOptionPane.WARNING_MESSAGE);
-            }else{
+            if(order.getStatus().equals("New Order")){
+                JOptionPane.showMessageDialog(null,"First Accept/Reject Order","Warning",JOptionPane.WARNING_MESSAGE);
+            } else if(order.getStatus().equals("Restaurant Accepted. Cooking Inprogress")){
                 AssignDeliveryMan viewOrder=new AssignDeliveryMan(userProcessContainer,account,order,system);
                 userProcessContainer.add("View Order",viewOrder);
                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
+            }else  {
+                JOptionPane.showMessageDialog(null,"It is already Assigned to a Delivery Person","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_AssignbtnActionPerformed

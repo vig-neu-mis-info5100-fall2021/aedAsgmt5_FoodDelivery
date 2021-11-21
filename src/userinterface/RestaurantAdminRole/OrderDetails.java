@@ -110,7 +110,7 @@ public class OrderDetails extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Order Details");
 
-        statusBtn.setText("Change Status to Ready to Deliver");
+        statusBtn.setText("Change Status to Accepted and Cooking");
         statusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusBtnActionPerformed(evt);
@@ -135,8 +135,8 @@ public class OrderDetails extends javax.swing.JPanel {
                         .addGap(105, 105, 105)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(statusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(171, 171, 171)
+                        .addComponent(statusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -166,11 +166,11 @@ public class OrderDetails extends javax.swing.JPanel {
 
     private void statusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusBtnActionPerformed
         // TODO add your handling code here:
-        order.setStatus("Ready to Deliver");
+        order.setStatus("Restaurant Accepted. Cooking Inprogress");
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(order.getCustomerName().equals(cust.getUserName())){
                 for(Order order : cust.getOrderList()){
-                    order.setStatus("Ready to Deliver");
+                    order.setStatus("Restaurant Accepted. Cooking Inprogress");
                 }
             }
         }

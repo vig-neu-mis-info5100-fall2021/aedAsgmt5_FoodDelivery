@@ -64,23 +64,27 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         submitJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        resultJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         picture = new javax.swing.JLabel();
         picturelabel = new javax.swing.JLabel();
         upload = new javax.swing.JButton();
+        pickedupBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
 
-        submitJButton.setText("Submit");
+        submitJButton.setText("Click here to change status to \"Delivered\"");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Update");
+        jLabel1.setText("Have you delivered the food in customer address?");
 
         backJButton.setText("Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +93,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        picture.setText("Picture");
+        picture.setText("Customer Signature Screenshot:");
 
         upload.setText("Upload");
         upload.addActionListener(new java.awt.event.ActionListener() {
@@ -98,36 +102,60 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        pickedupBtn.setText("Click here to change status to \"Picked up\"");
+        pickedupBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pickedupBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Have you picked up the food from restaurant?");
+
+        jLabel4.setText("Pick up");
+
+        jLabel5.setText("Delivery");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(picture))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(338, 338, 338)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(backJButton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel3)
+                        .addGap(31, 31, 31)
+                        .addComponent(pickedupBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(submitJButton)
-                                .addGap(28, 28, 28)
+                                .addComponent(picture)
+                                .addGap(45, 45, 45)
+                                .addComponent(picturelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(upload))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(91, 91, 91)
-                                        .addComponent(backJButton))))))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(picturelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(208, Short.MAX_VALUE))
+                        .addGap(299, 299, 299)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(submitJButton)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,23 +165,31 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backJButton)))
-                .addGap(15, 15, 15)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pickedupBtn)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel5)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(picturelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(picture))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56)
-                        .addComponent(picture)))
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addComponent(upload))
-                .addContainerGap(220, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(upload))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(picturelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addComponent(submitJButton)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,18 +207,13 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                            
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-//        request.setTestResult(resultJTextField.getText();
-//        request.setStatus("Completed");
-          String status=resultJTextField.getText();
-        try {
-             if(status==null || status.isEmpty()){
-                throw new Exception(" Status field is Empty");
-             }       
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, " Status is Empty");
-            return;
-        }
-       
+        
+        if(order.getStatus().equals("Delivered")){
+            JOptionPane.showMessageDialog(null,"It is already marked delivered!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else if(!order.getStatus().equals("Picked up")){
+            JOptionPane.showMessageDialog(null,"First pick up the food!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else{
+        String status="Delivered";
         order.setStatus(status);
          for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(order.getCustomerName().equals(cust.getUserName())){
@@ -195,10 +226,8 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 }
             }
         }
-         resultJTextField.setText(" ");
-         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        JOptionPane.showMessageDialog(null,"Good Job. Order status updated to Delivered!","Warning",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadActionPerformed
@@ -214,19 +243,51 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         }
         
         Image pic = bfImage.getScaledInstance(picturelabel.getWidth(), picturelabel.getHeight(),Image.SCALE_SMOOTH);
+        //?
+        System.out.println("pic volue =:" + pic);
         ImageIcon Imicon = new ImageIcon(pic);
         
         picturelabel.setIcon(Imicon);
-        res.setPicture(pic);
+        //res.setPicture(pic);
+        //?
     }//GEN-LAST:event_uploadActionPerformed
+
+    private void pickedupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickedupBtnActionPerformed
+        // TODO add your handling code here:
+        
+        if(order.getStatus().equals("Delivered")){
+            JOptionPane.showMessageDialog(null,"It is already marked delivered!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else if(order.getStatus().equals("Picked up")){
+            JOptionPane.showMessageDialog(null," Order is already Picked up by you, Proceed to deliver","Warning",JOptionPane.WARNING_MESSAGE);
+        } else{ //status here "Cooking Done. Assigned to Delivery man"
+            order.setStatus("Picked up");
+            for(Customer cust:system.getCustomerDirectory().getCustList()){
+                if(order.getCustomerName().equals(cust.getUserName())){
+                for(Order o : cust.getOrderList()){
+                    if(o.equals(order))
+                    {
+                        order.setStatus("Picked up");
+                    }
+                    
+                }
+                }
+            }
+            
+            JOptionPane.showMessageDialog(null,"Order status updated to Picked up","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_pickedupBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton pickedupBtn;
     private javax.swing.JLabel picture;
     private javax.swing.JLabel picturelabel;
-    private javax.swing.JTextField resultJTextField;
     private javax.swing.JButton submitJButton;
     private javax.swing.JButton upload;
     // End of variables declaration//GEN-END:variables
