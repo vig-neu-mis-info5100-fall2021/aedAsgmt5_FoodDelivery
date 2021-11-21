@@ -21,8 +21,8 @@ public class RestaurantDirectory {
         this.restaurantList=new ArrayList<Restaurant>();
     }
     
-    public Restaurant createRestaurantInfo(String uName){
-        restaurant= new Restaurant(uName);
+    public Restaurant createRestaurantInfo(String uName, String name){
+        restaurant= new Restaurant(uName, name);
         restaurantList.add(restaurant);
         return restaurant;
     }

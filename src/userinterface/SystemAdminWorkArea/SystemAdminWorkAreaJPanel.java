@@ -16,7 +16,7 @@ import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
- * @author MyPC1
+ * @author Deepika Reddy
  */
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -29,15 +29,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        populateTree();
+        
     }
     
-    public void populateTree(){
-        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
-       // Add the code for draw your system structure shown by JTree
-       
-        model.reload();
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,63 +44,51 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree = new javax.swing.JTree();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblSelectedNode = new javax.swing.JLabel();
-        btnManageNetwork = new javax.swing.JButton();
-        btnManageEnterprise = new javax.swing.JButton();
-        btnManageAdmin = new javax.swing.JButton();
+        ManageDeliverybtn = new javax.swing.JButton();
+        ManageResbtn = new javax.swing.JButton();
+        ManageCxbtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 204, 204));
         setLayout(new java.awt.BorderLayout());
 
-        jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                jTreeValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTree);
+        jSplitPane.setDividerLocation(120);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 118, Short.MAX_VALUE))
+            .addGap(0, 395, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jLabel1.setText("Selected Node:");
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        lblSelectedNode.setText("<View_selected_node>");
-
-        btnManageNetwork.setText("Manage All Customers");
-        btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
+        ManageDeliverybtn.setText("Manage Delivery Person");
+        ManageDeliverybtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetworkActionPerformed(evt);
+                ManageDeliverybtnActionPerformed(evt);
             }
         });
 
-        btnManageEnterprise.setText("Manage Restaurants");
-        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+        ManageResbtn.setText("Manage Restaurants");
+        ManageResbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEnterpriseActionPerformed(evt);
+                ManageResbtnActionPerformed(evt);
             }
         });
 
-        btnManageAdmin.setText("Manage Deliveryman");
-        btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+        ManageCxbtn.setText("Manage All Customers");
+        ManageCxbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAdminActionPerformed(evt);
+                ManageCxbtnActionPerformed(evt);
             }
         });
 
@@ -114,82 +97,70 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSelectedNode))
+                        .addComponent(ManageCxbtn)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnManageAdmin)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(240, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ManageDeliverybtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ManageResbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(54, 54, 54)
-                .addComponent(btnManageNetwork)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageEnterprise)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageAdmin)
-                .addContainerGap(175, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addGap(50, 50, 50)
+                .addComponent(ManageCxbtn)
+                .addGap(40, 40, 40)
+                .addComponent(ManageResbtn)
+                .addGap(35, 35, 35)
+                .addComponent(ManageDeliverybtn)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-    //Network - Customer
-    private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-        ManageNetworkJPanel manageNetworkJPanel=new ManageNetworkJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageCustomerJPanel",manageNetworkJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageNetworkActionPerformed
-    //Enterprise - Restaurant
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        ManageEnterpriseJPanel manageEnterpriseJPanel=new ManageEnterpriseJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageRestaurantJPanel",manageEnterpriseJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
-    //EnterpriseAdmin - DeliveryMan
-    private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-        ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel=new ManageEnterpriseAdminJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("manageDeliveryManJPanel",manageEnterpriseAdminJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageAdminActionPerformed
 
-    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
+    private void ManageResbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageResbtnActionPerformed
+        ManageRestaurantJPanel manageResPanel=new ManageRestaurantJPanel(userProcessContainer, ecosystem);
         
-        DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree.getLastSelectedPathComponent();
-        if(selectedNode!=null){
-            lblSelectedNode.setText(selectedNode.toString());
-        }
-    }//GEN-LAST:event_jTreeValueChanged
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add("ManageRestaurantJPanel",manageResPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageResbtnActionPerformed
+
+    private void ManageDeliverybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDeliverybtnActionPerformed
+        ManageDeliveryManJPanel manageDelvPanel=new ManageDeliveryManJPanel(userProcessContainer, ecosystem);
+        
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add("ManageDeliveryManJPanel",manageDelvPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageDeliverybtnActionPerformed
+
+    private void ManageCxbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageCxbtnActionPerformed
+        ManageCustomerJPanel manageCustPanel=new ManageCustomerJPanel(userProcessContainer, ecosystem);
+        
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add("ManageCustomerJPanel",manageCustPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ManageCxbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageAdmin;
-    private javax.swing.JButton btnManageEnterprise;
-    private javax.swing.JButton btnManageNetwork;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ManageCxbtn;
+    private javax.swing.JButton ManageDeliverybtn;
+    private javax.swing.JButton ManageResbtn;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane;
-    private javax.swing.JTree jTree;
-    private javax.swing.JLabel lblSelectedNode;
     // End of variables declaration//GEN-END:variables
 }

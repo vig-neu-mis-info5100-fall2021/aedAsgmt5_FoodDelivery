@@ -27,13 +27,13 @@ public class Customer {
         orderList = new ArrayList<Order>();
     }
 
-    public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dish> Order, String cost, String deliveryAddress) {
+    public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dish> orderItems, String cost, String deliveryAddress) {
         Order o = new Order();
         o.setOrder_id(String.valueOf(id));
         o.setCustomerName(customerName);
         o.setRestaurentName(restaurentName);
         o.setDeliverMan(deliverMan);
-        o.setOrder(Order);
+        o.setOrder(orderItems);
         o.setCost(cost);
         o.setDeliveryAddress(deliveryAddress);
         o.setStatus("New Order");

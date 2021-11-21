@@ -1,46 +1,73 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.DeliveryManRole;
-
+import Business.Role.DeliverManRole;
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
-
+import Business.Order.Order;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkRequest;
+import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author Deepika Reddy
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
+    /**
+     * Creates new form DeliveryManWorkAreaJPanel
+     */
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
     
-    
-    /**
-     * Creates new form LabAssistantWorkAreaJPanel
-     */
     public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-      
-        
+     
+        lblName.setText("Welcome, "+userAccount.getName());
         populateTable();
     }
-    
     public void populateTable(){
         
+        
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        
+        model.setRowCount(0);
+        
+        for(DeliveryMan deliveryMan : business.getDeliveryManDirectory().getDeliveryManList()){
+            //if(deliveryMan.getUserName().equals(userAccount.getUsername())){
+                    
+                for(Order order : deliveryMan.getOrderList()){
+                Object[] row = new Object[6];
+                row[1] = order.getRestaurentName();
+                 row[3] = order.getDeliveryAddress();
+                  row[4] = order.getCost();
+                row[0] = order;
+                
+                row[2] = order.getCustomerName();
+               
+               
+                row[5] = order.getStatus();
+                
+                
+                model.addRow(row);
+                    
+                }
+        //}
+            
+        }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,28 +79,29 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
-        assignJButton = new javax.swing.JButton();
-        processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
+        processbtn = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(153, 153, 153));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Receiver", "Status"
+                "Order Id", "Restaurant Name", "Customer Name", "Delivery Address", "Amount", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -85,41 +113,73 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(workRequestJTable);
-        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
-        }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
-
-        assignJButton.setText("Assign to me");
-        assignJButton.addActionListener(new java.awt.event.ActionListener() {
+        processbtn.setText("Process to pickup/deliver");
+        processbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignJButtonActionPerformed(evt);
+                processbtnActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
 
-        processJButton.setText("Process");
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
+        refresh.setText("Refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
+                refreshActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
 
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
-            }
-        });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        jLabel2.setText("Orders In Pipeline:");
+
+        lblName.setText("<value>");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(640, 640, 640)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(154, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(processbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(refresh))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2)))
+                .addGap(0, 0, 0))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(lblName)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(processbtn)
+                    .addComponent(refresh))
+                .addContainerGap(327, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
+    private void processbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processbtnActionPerformed
 
         int selectedRow = workRequestJTable.getSelectedRow();
         
@@ -127,28 +187,32 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         
-        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
-        request.setStatus("Pending");
+        Order order = (Order)workRequestJTable.getValueAt(selectedRow, 0); 
+        
+        if(order.getStatus().equals("Delivered")){
+            JOptionPane.showMessageDialog(null," Order Already Delivered","Warning",JOptionPane.WARNING_MESSAGE);
+        }else{
+        
+        
+        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order,business);
+        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);}
+    }//GEN-LAST:event_processbtnActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
         populateTable();
-        
-    }//GEN-LAST:event_assignJButtonActionPerformed
-
-    private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
-
-        
-    }//GEN-LAST:event_processJButtonActionPerformed
-
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
+    }//GEN-LAST:event_refreshActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignJButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JButton processbtn;
+    private javax.swing.JButton refresh;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

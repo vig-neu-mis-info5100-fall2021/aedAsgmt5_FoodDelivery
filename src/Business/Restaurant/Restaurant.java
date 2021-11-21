@@ -24,8 +24,9 @@ public class Restaurant {
     private String address;
     private String number;
     
-    public Restaurant(String UName) {
+    public Restaurant(String UName, String name) {
         this.adminUName=UName;
+        this.name = name;
         Menu=new ArrayList<Dish>();
         orderList=new ArrayList<Order>();
     }
