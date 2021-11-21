@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public abstract class Role {
     

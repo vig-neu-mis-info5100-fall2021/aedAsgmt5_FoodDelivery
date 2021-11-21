@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author raunak
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public abstract class WorkRequest {
 

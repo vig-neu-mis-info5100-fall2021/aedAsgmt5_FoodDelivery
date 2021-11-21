@@ -24,7 +24,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;

@@ -6,7 +6,7 @@ package Business.Employee;
 
 /**
  *
- * @author raunak
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public class Employee {
     
@@ -17,6 +17,11 @@ public class Employee {
     public Employee() {
         id = count;
         count++;
+    }
+    
+    @Override
+    public String toString() {
+        return name;
     }
 
     public int getId() {
@@ -30,12 +35,6 @@ public class Employee {
     
     public String getName() {
         return name;
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
-    
+    } 
     
 }

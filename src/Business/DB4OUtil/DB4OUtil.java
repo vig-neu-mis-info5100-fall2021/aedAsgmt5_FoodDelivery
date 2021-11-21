@@ -11,8 +11,7 @@ import java.nio.file.Paths;
 
 /**
  *
- * @author rrheg
- * @author Lingfeng
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public class DB4OUtil {
 

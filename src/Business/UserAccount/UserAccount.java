@@ -10,7 +10,7 @@ import Business.WorkQueue.WorkQueue;
 
 /**
  *
- * @author raunak
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public class UserAccount {
     
@@ -19,12 +19,13 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private String contact;
+    private String address;
+    private String name;
 
     public UserAccount() {
         workQueue = new WorkQueue();
     }
-    
-    
     
     public String getUsername() {
         return username;
@@ -67,6 +68,30 @@ public class UserAccount {
     @Override
     public String toString() {
         return username;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     

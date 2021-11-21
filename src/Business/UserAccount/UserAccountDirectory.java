@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
 public class UserAccountDirectory {
     
@@ -33,13 +33,13 @@ public class UserAccountDirectory {
     }
     
     public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(username);
-        userAccount.setPassword(password);
-        userAccount.setEmployee(employee);
-        userAccount.setRole(role);
-        userAccountList.add(userAccount);
-        return userAccount;
+        UserAccount ua = new UserAccount();
+        ua.setUsername(username);
+        ua.setPassword(password);
+        ua.setEmployee(employee);
+        ua.setRole(role);
+        userAccountList.add(ua);
+        return ua;
     }
     
     public boolean checkIfUsernameIsUnique(String username){
@@ -49,4 +49,38 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
+    public UserAccount createUserAccount(String username, String password,String contact, String address, Employee employee, Role role) {
+        UserAccount ua = new UserAccount();
+        ua.setUsername(username);
+        ua.setPassword(password);
+        ua.setEmployee(employee);
+        ua.setRole(role);
+        userAccountList.add(ua);
+        return ua;
+    }
+    
+    public void updateUserAccount(UserAccount ua,String name,String username, String password){
+       
+        ua.setName(name);
+        ua.setUsername(username);
+        ua.setPassword(password);
+    }
+    
+    public void removeAllAccounts() {
+        for (int i = 0; i < userAccountList.size(); i++) {
+            if (!userAccountList.get(i).getUsername().equalsIgnoreCase("admin")) {
+                userAccountList.remove(i);
+            }
+        }
+        for (int i = 0; i < userAccountList.size(); i++) {
+            System.out.println(userAccountList.get(i).getEmployee());
+        }
+    }
+    
+    public void deleteUserAccount(UserAccount ua){
+        userAccountList.remove(ua);
+    }
+    
+    
 }
