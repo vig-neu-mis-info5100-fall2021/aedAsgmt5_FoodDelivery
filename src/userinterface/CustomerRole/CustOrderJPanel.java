@@ -384,7 +384,7 @@ public class CustOrderJPanel extends javax.swing.JPanel {
             }
         }
 
-        JOptionPane.showMessageDialog(null,"Your Order is placed","Thank You",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Your Order is placed, Relax No need to check status of it. Food will reach your house!","Thank You",JOptionPane.WARNING_MESSAGE);
         sum=0;
         lblCartTotal.setText(String.valueOf(sum));
         orderBtn1.setEnabled(false);
